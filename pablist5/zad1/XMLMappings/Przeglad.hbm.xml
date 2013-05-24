@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="zad1" assembly="zad1">
+    <class name="Przeglad">
+        <id name="id">
+            <generator class="native" />
+        </id>
+        <one-to-one name="Pojazd" class="Pojazd" column="ID_Pojazd" />
+        <property name="DataPlanowana" not-null="true" />
+        <property name="DataNastepnego" />
+        <property name="Zatwierdzony" />
+        <one-to-one name="Przyjmujacy" class="Pracownik" column="ID_Przyjmujacego" />
+        <one-to-one name="Wykonujacy" class="Pracownik" column="ID_Wykonujacego" />
+    </class>
+</hibernate-mapping>

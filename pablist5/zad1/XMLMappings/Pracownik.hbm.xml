@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="zad1" assembly="zad1">
+    <class name="Pracownik">
+        <id name="id">
+            <generator class="native" />
+        </id>
+        <property name="imie" />
+        <property name="nazwisko" />
+        <property name="rola" />
+        <property name="login" />
+        <property name="haslo" />
+    </class>
+</hibernate-mapping>
