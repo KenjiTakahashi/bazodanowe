@@ -1,0 +1,41 @@
+\documentclass[fontsize=14pt]{scrartcl}
+
+\usepackage{polski}
+\usepackage{a4wide}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{fontspec}
+\usepackage{setspace}
+\usepackage{titling}
+\defaultfontfeatures{Scale=MatchLowercase}
+\setmainfont[Ligatures=TeX]{Liberation Serif}
+\setsansfont{Liberation Sans}
+\setmonofont[SmallCapsFont={Liberation Mono}]{Liberation Mono}
+\setlength{\droptitle}{-1.5in}
+
+\title{\LARGE \textbf{{Projekt z Kursu programowania aplikacji bazodanowych}}}
+\author{Karol Woźniak}
+\date{Wrocław, dnia \today r.}
+
+\begin{document}
+\thispagestyle{empty}
+\maketitle
+\section{Co?}
+Serwis wspomagający utrzymywanie porządku w zbiorach książkowych.\\
+Innymi słowy: Kolekcjonowanie książek, uzupełnianie informacji, oznaczanie przeczytanych/pożyczonych, itp.
+\section{Jak?}
+Użytkownik posiadający konto w serwisie operuje na globalnej bazie książek, z której tworzy podzbiór zawierający jego książki. Może również, w razie potrzeby, dodawać do globalnej bazy nowe pozycje, bądź modyfikować istniejące.
+
+Nad czystością bazy czuwają administratorzy, których zadaniem jest zatwierdzanie zmian dokonanych przez użytkowników oraz podejmowanie odpowiednich kroków wobec użytkowników ``niszczących'' bazę.\\
+Mają oni również możliwość nadania użytkownikowi statusu ``zaufanego''. Modyfikacje dokonywane przez zaufanego użytkownika pojawiają się od razu po dodaniu, nie przechodząc dodatkowego poziomu moderacji.
+
+Niezalogowani użytkownicy mogą przeglądać bazę w trybie tylko do odczytu.\\[1ex]
+
+Wartością dodaną (jeśli zdąrzę) będzie automatyczne rozwiązywanie danych o książce na podstawie numeru ISBN (np. z bazy amazonu lub podobnej).
+\section{Czym?}
+Entity Framework + ASP.NET MVC, ``pure code first'', tj.\ baza w całości generowana z kodu źródłowego.
+\end{document}
