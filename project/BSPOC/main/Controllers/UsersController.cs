@@ -7,29 +7,28 @@ using System.Web;
 using System.Web.Mvc;
 using db;
 
-namespace main.Controllers {
-    public class UserAdminVModel {
-        public IList<User> Users { get; set; }
-        public IList<Admin> Admins { get; set; }
-    }
-
-    public class OverseerController : Controller {
+namespace main.Controllers
+{
+    public class UsersController : ApplicationController
+    {
         private Context db = new Context();
 
         //
-        // GET: /Overseer/
+        // GET: /Users/
 
-        public ActionResult Index() {
-            UserAdminVModel uavm = new UserAdminVModel();
-            uavm.Users = db.Users.ToList();
-            uavm.Admins = db.Admins.ToList();
-            return View(uavm);
+        public ActionResult Index(int? shelfId = null)
+        {
+            if(shelfId.HasValue)
+                return View(db.Shelves.Find(shelfId).Users);
+            else
+                return View(db.Users.ToList());
         }
 
         //
-        // GET: /Overseer/Details/5
+        // GET: /Users/Details/5
 
-        public ActionResult Details(int id = 0) {
+        public ActionResult Details(int id = 0)
+        {
             User user = db.Users.Find(id);
             if (user == null)
             {
@@ -39,19 +38,22 @@ namespace main.Controllers {
         }
 
         //
-        // GET: /Overseer/Create
+        // GET: /Users/Create
 
-        public ActionResult Create() {
+        public ActionResult Create()
+        {
             return View();
         }
 
         //
-        // POST: /Overseer/Create
+        // POST: /Users/Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(User user) {
-            if (ModelState.IsValid) {
+        public ActionResult Create(User user)
+        {
+            if (ModelState.IsValid)
+            {
                 db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -61,23 +63,27 @@ namespace main.Controllers {
         }
 
         //
-        // GET: /Overseer/Edit/5
+        // GET: /Users/Edit/5
 
-        public ActionResult Edit(int id = 0) {
+        public ActionResult Edit(int id = 0)
+        {
             User user = db.Users.Find(id);
-            if (user == null) {
+            if (user == null)
+            {
                 return HttpNotFound();
             }
             return View(user);
         }
 
         //
-        // POST: /Overseer/Edit/5
+        // POST: /Users/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(User user) {
-            if (ModelState.IsValid) {
+        public ActionResult Edit(User user)
+        {
+            if (ModelState.IsValid)
+            {
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -86,29 +92,33 @@ namespace main.Controllers {
         }
 
         //
-        // GET: /Overseer/Delete/5
+        // GET: /Users/Delete/5
 
-        public ActionResult Delete(int id = 0) {
+        public ActionResult Delete(int id = 0)
+        {
             User user = db.Users.Find(id);
-            if (user == null) {
+            if (user == null)
+            {
                 return HttpNotFound();
             }
             return View(user);
         }
 
         //
-        // POST: /Overseer/Delete/5
+        // POST: /Users/Delete/5
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id) {
+        public ActionResult DeleteConfirmed(int id)
+        {
             User user = db.Users.Find(id);
             db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing) {
+        protected override void Dispose(bool disposing)
+        {
             db.Dispose();
             base.Dispose(disposing);
         }

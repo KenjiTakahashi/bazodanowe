@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestfulRouting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,9 @@ namespace main {
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            //ViewEngines.Engines.Clear();
+            //ViewEngines.Engines.Add(new RestfulRoutingRazorViewEngine());
         }
     }
 }

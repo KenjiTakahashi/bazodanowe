@@ -34,7 +34,7 @@ namespace seeder {
 
                 foreach(Book book in books) {
                     int k = FakeO.Number.Next(0, 400);
-                    int n = FakeO.Number.Next(0, 4);
+                    int n = FakeO.Number.Next(1, 4);
                     while(k + n > 400) {
                         k -= 1;
                     }
@@ -80,7 +80,7 @@ namespace seeder {
                     }
 
                     int k = FakeO.Number.Next(0, 20);
-                    int n = FakeO.Number.Next(0, 7);
+                    int n = FakeO.Number.Next(1, 7);
                     while(k + n > 20) {
                         k -= 1;
                     }
