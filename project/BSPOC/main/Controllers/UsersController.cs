@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using db;
+using WebMatrix.WebData;
 
 namespace main.Controllers
 {
@@ -121,6 +122,53 @@ namespace main.Controllers
         {
             db.Dispose();
             base.Dispose(disposing);
+        }
+
+        [ChildActionOnly]
+        public ActionResult Register() {
+            if(!WebSecurity.Initialized) {
+                WebSecurity.InitializeDatabaseConnection("Context", "Users", "ID", "Nickname", true);
+            }
+            return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult Register(FormCollection form) {
+            WebSecurity.CreateUserAndAccount(form["nickname"], form["password"], new {
+                Name=form["name"],
+                Surname=form["surname"],
+                Email=form["email"]
+            });
+            Response.Redirect("~/Home/Index");
+            return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult Login() {
+            if(!WebSecurity.Initialized) {
+                WebSecurity.InitializeDatabaseConnection("Context", "Users", "ID", "Nickname", true);
+            }
+            return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult Login(FormCollection form) {
+            bool success = WebSecurity.Login(form["username"], form["password"], false);
+            if(success) {
+                string returnUrl = Request.QueryString["ReturnUrl"];
+                if(returnUrl == null) {
+                    Response.Redirect("~/Home/Index");
+                } else {
+                    Response.Redirect(returnUrl);
+                }
+            }
+            return View();
+        }
+
+        public ActionResult Logout() {
+            WebSecurity.Logout();
+            Response.Redirect("~/Home/Index");
+            return View();
         }
     }
 }

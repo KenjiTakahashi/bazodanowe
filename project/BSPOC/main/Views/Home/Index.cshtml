@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "BSPOC";
+}
+
+<div id="user">
+    <div id="login">
+        @{Html.RenderAction("Login", "Users");}
+    </div>
+    <div id="register">
+        @{Html.RenderAction("Register", "Users");}
+    </div>
+</div>
+<div id="main">
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

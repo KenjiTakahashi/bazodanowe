@@ -48,7 +48,14 @@
     <Compile Include="Migrations\201306020108452_AddUsersToShelves.Designer.cs">
       <DependentUpon>201306020108452_AddUsersToShelves.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Migrations\201306062243429_RemovePasswordField.cs" />
+    <Compile Include="Migrations\201306062243429_RemovePasswordField.Designer.cs">
+      <DependentUpon>201306062243429_RemovePasswordField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306062317182_RemoveTrustedFieldAndAdminTable.cs" />
+    <Compile Include="Migrations\201306062317182_RemoveTrustedFieldAndAdminTable.Designer.cs">
+      <DependentUpon>201306062317182_RemoveTrustedFieldAndAdminTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -72,6 +79,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201306020108452_AddUsersToShelves.resx">
       <DependentUpon>201306020108452_AddUsersToShelves.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306062243429_RemovePasswordField.resx">
+      <DependentUpon>201306062243429_RemovePasswordField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306062317182_RemoveTrustedFieldAndAdminTable.resx">
+      <DependentUpon>201306062317182_RemoveTrustedFieldAndAdminTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,18 @@
+﻿@using(Html.BeginForm("Login", "Users")) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="editor-label">Username</div>
+    <div class="editor-field">
+        @Html.Editor("nickname")
+    </div>
+
+    <div class="editor-label">Password</div>
+    <div class="editor-field">
+        @Html.Password("password")
+    </div>
+
+    <p>
+        <input type="submit" value="Login" />
+    </p>
+}
