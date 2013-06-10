@@ -54,6 +54,17 @@ namespace main.Controllers
             return View(shelf);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateForUser(int userId, FormCollection form) {
+            var user = db.Users.Find(userId);
+            var shelf = new db.Shelf { Name = form["New Shelf"], Users = new List<User> { user } };
+            db.Shelves.Add(shelf);
+            db.SaveChanges();
+            Response.Redirect("~");
+            return View();
+        }
+
         //
         // GET: /Shelves/Edit/5
 

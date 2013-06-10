@@ -4,43 +4,25 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <div class="editor-label">
-        @Html.LabelFor(model => model.Name)
-    </div>
+    <p><input type="submit" value="Register" /></p>
     <div class="editor-field">
-        @Html.EditorFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "auto-hint" })
         @Html.ValidationMessageFor(model => model.Name)
     </div>
-
-    <div class="editor-label">
-        @Html.LabelFor(model => model.Surname)
-    </div>
     <div class="editor-field">
-        @Html.EditorFor(model => model.Surname)
+        @Html.TextBoxFor(model => model.Surname, new { @class = "auto-hint" })
         @Html.ValidationMessageFor(model => model.Surname)
     </div>
-
-    <div class="editor-label">
-        @Html.LabelFor(model => model.Email)
-    </div>
     <div class="editor-field">
-        @Html.EditorFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new { @class = "auto-hint" })
         @Html.ValidationMessageFor(model => model.Email)
     </div>
-
-    <div class="editor-label">Username</div>
     <div class="editor-field">
-        @Html.EditorFor(model => model.Nickname)
+        @Html.TextBoxFor(model => model.Nickname, new { @class = "auto-hint" })
         @Html.ValidationMessageFor(model => model.Nickname)
     </div>
-
-    <div class="editor-label">Password</div>
     <div class="editor-field">
         @Html.Password("password")
         @Html.ValidationMessage("webpages_Membership")
     </div>
-
-    <p>
-        <input type="submit" value="Register" />
-    </p>
 }

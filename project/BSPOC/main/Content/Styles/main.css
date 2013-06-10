@@ -1,0 +1,50 @@
+﻿html, body {
+    height: 100%;
+    min-height: 100%;
+}
+body {
+    padding: 0 120px;
+}
+.editor-field input {
+    width: 200px;
+    border: 1px solid #adadad;
+    margin-top: 10px;
+    font-size: 16px;
+    padding: 9px;
+}
+#user {
+    height: 98%;
+    width: 215px;
+    position: fixed;
+    float: left;
+    border-right: 1px solid #adadad;
+    padding-right: 15px;
+    text-align: right;
+}
+#user hr {
+    height: 1px;
+    width: 215px;
+    color: #adadad;
+    background-color: #adadad;
+    border: 0px;
+}
+#realname {
+    font-size: 24px;
+    font-weight: 700;
+}
+#username {
+    font-size: 20px;
+    padding-bottom: 8px;
+}
+#user ul {
+    list-style: none;
+    padding: 0;
+}
+#user ul li {
+    width: 215px;
+}
+#main {
+    padding: 15px;
+    padding-left: 250px;
+    float: left;
+}

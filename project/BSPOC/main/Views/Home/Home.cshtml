@@ -1,0 +1,27 @@
+﻿@model db.User
+
+<div id="user">
+    <div id="realname">
+        @Model.Name @Model.Surname
+    </div>
+    <div id="username">
+        @Model.Nickname
+    </div>
+    <hr />
+    <ul>
+        @foreach(var shelf in @Model.Shelves) {
+            <li>
+                @shelf.Name
+            </li>
+        }
+        <li>
+            @using(Html.BeginForm("CreateForUser", "Shelves", new { userId = @Model.ID })) {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.TextBox("New Shelf", "", new { @class = "auto-hint" })
+                <input type="submit" value="Add" />
+            }
+        </li>
+    </ul>
+</div>
+@{Html.RenderPartial("Main", @Model.Shelves);}

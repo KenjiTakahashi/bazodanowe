@@ -1,0 +1,13 @@
+﻿@model IEnumerable<db.Shelf>
+
+<div id="main">
+    <ul>
+    @foreach(var shelf in @Model) {
+        foreach(var book in shelf.Books) {
+            <li>
+                @book.Title
+            </li>
+        }
+    }
+    </ul>
+</div>

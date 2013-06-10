@@ -2,17 +2,11 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <div class="editor-label">Username</div>
     <div class="editor-field">
-        @Html.Editor("nickname")
+        @Html.TextBox("Username", "", new { @class = "auto-hint" })
     </div>
-
-    <div class="editor-label">Password</div>
     <div class="editor-field">
         @Html.Password("password")
     </div>
-
-    <p>
-        <input type="submit" value="Login" />
-    </p>
+    <p><input type="submit" value="Login" /></p>
 }
